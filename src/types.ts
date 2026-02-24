@@ -23,6 +23,7 @@ export interface ResizeConfig {
   exactWidth:  number | ''   // modo 'pixels'
   exactHeight: number | ''   // modo 'pixels'
   lockAspect: boolean        // proporcional
+  snapToGrid: boolean        // arredonda saída para múltiplo do gridSize
   gridSize: GridSize
   showGrid: boolean
   previewFit: 'actual' | 'fit'

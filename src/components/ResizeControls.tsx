@@ -155,8 +155,11 @@ export default function ResizeControls({
           <div className={styles.resultBox}>
             <span className={styles.resultSrc}>{selectedItem.srcWidth}x{selectedItem.srcHeight}</span>
             <span className={styles.resultArrow}>&rarr;</span>
-            <span className={styles.resultOut}>{resultDims.w}x{resultDims.h}</span>
+            <span className={`${styles.resultOut} ${resultDims.snapped ? styles.resultSnapped : ''}`}>
+              {resultDims.w}x{resultDims.h}
+            </span>
             <span className={styles.resultPx}>px</span>
+            {resultDims.snapped && <span className={styles.snapBadge}>snap ✓</span>}
           </div>
         )}
       </section>
@@ -168,12 +171,32 @@ export default function ResizeControls({
           onChange={e => onChange({
             gridSize: Number(e.target.value) as GridSize,
             showGrid: Number(e.target.value) > 0,
+            snapToGrid: Number(e.target.value) === 0 ? false : config.snapToGrid,
           })}
         >
           {GRID_SIZES.map(g => (
             <option key={g.value} value={g.value}>{g.label}</option>
           ))}
         </select>
+
+        <label className={styles.lockRow}>
+          <input
+            type="checkbox"
+            checked={config.snapToGrid}
+            disabled={config.gridSize === 0}
+            onChange={e => onChange({ snapToGrid: e.target.checked })}
+          />
+          <span className={config.gridSize === 0 ? styles.muted : styles.snapLabel}>
+            Alinhar saída ao grid (evita tiles distorcidos)
+          </span>
+        </label>
+
+        {config.snapToGrid && config.gridSize > 0 && resultDims?.snapped && (
+          <p className={styles.snapWarning}>
+            ⚠ Dimensões ajustadas para múltiplo de {config.gridSize}px
+          </p>
+        )}
+
         <p className={styles.hint}>Visualize as celulas de tiles sobre a imagem</p>
       </section>
 

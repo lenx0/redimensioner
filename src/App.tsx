@@ -17,6 +17,7 @@ const DEFAULT_CONFIG: ResizeConfig = {
   exactWidth: '',
   exactHeight: '',
   lockAspect: true,
+  snapToGrid: false,
   gridSize: 32,
   showGrid: true,
   previewFit: 'fit',

@@ -274,3 +274,32 @@
   font-size: 11px;
   color: var(--text-muted);
 }
+
+.snapLabel {
+  color: var(--text);
+}
+
+.snapWarning {
+  font-size: 11px;
+  color: var(--warning);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.resultSnapped {
+  color: var(--warning) !important;
+}
+
+.snapBadge {
+  font-size: 10px;
+  font-weight: 700;
+  background: color-mix(in srgb, var(--warning) 20%, var(--surface2));
+  color: var(--warning);
+  border: 1px solid var(--warning);
+  border-radius: 4px;
+  padding: 1px 5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-left: auto;
+}
