@@ -1,0 +1,276 @@
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: fit-content;
+  position: sticky;
+  top: 16px;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.presetRow {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.preset {
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--surface2);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.preset:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.preset.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.sliderRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sliderRow input[type="range"] {
+  flex: 1;
+  min-width: 0;
+}
+
+.val {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--accent);
+  min-width: 40px;
+  text-align: right;
+}
+
+.hint {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.folderRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.folderName {
+  font-size: 12px;
+  color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 160px;
+}
+
+.muted { color: var(--text-muted); font-style: italic; }
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.btnPrimary, .btnSecondary, .btnSuccess {
+  width: 100%;
+  padding: 9px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+}
+
+.btnPrimary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btnPrimary:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.btnSuccess {
+  background: color-mix(in srgb, var(--success) 20%, var(--surface2));
+  color: var(--success);
+  border: 1px solid var(--success);
+}
+
+.btnSuccess:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--success) 30%, var(--surface2));
+}
+
+.btnSecondary {
+  background: var(--surface2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  width: auto;
+  font-size: 12px;
+  padding: 5px 10px;
+}
+
+.btnSecondary:hover {
+  border-color: var(--accent);
+}
+
+/* ── Mode toggle ── */
+.modeToggle {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.modeBtn {
+  flex: 1;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--surface2);
+  color: var(--text-muted);
+  border-radius: 0;
+  border: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+.modeBtn:hover {
+  background: color-mix(in srgb, var(--accent) 15%, var(--surface2));
+  color: var(--text);
+}
+
+.modeActive {
+  background: var(--accent) !important;
+  color: #fff !important;
+}
+
+/* ── Number input ── */
+.numInput {
+  background: var(--surface2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 4px 6px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  width: 64px;
+  text-align: right;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.numInput:focus {
+  border-color: var(--accent);
+}
+
+.unit {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* ── px mode grid ── */
+.pixelGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 10px;
+}
+
+.dimLabel {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pixelGrid .numInput {
+  width: 100%;
+}
+
+/* ── Lock row ── */
+.lockRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text);
+  cursor: pointer;
+  user-select: none;
+}
+
+.lockRow input[type="checkbox"] {
+  accent-color: var(--accent);
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
+/* ── Result box ── */
+.resultBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  margin-top: 4px;
+  font-family: var(--font-mono);
+}
+
+.resultSrc {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.resultArrow {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.resultOut {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.resultPx {
+  font-size: 11px;
+  color: var(--text-muted);
+}
